@@ -50,7 +50,7 @@ function CardDisplys({deck}){
     }
     const NewChangeHandeler=(event)=>{
         const text = event.target.value;
-        setEditFormData({...newFormData,[event.target.name]:text})
+        setNewFormData({...newFormData,[event.target.name]:text})
     }
 
     const cancelClickHandler =(event)=>{
@@ -66,9 +66,9 @@ function CardDisplys({deck}){
             </div>
             <h1>Edit Card</h1>
             <form onSubmit={EditSubmitHandeler}>
-                <label for="front">Front:</label>
+                <label htmlFor="front">Front:</label>
                 <textarea name="front" id="front" onChange={EditChangeHandeler} value={editFormData.front}></textarea>
-                <label for="back">Back:</label>
+                <label htmlFor="back">Back:</label>
                 <textarea name="back" id="back" onChange={EditChangeHandeler} value={editFormData.back}></textarea>
                 <button onClick={cancelClickHandler}>Cancel</button>
                 <button type="submit">Submit</button>
@@ -81,9 +81,9 @@ function CardDisplys({deck}){
             </div>
             <div><h1>{deck.name}: </h1><h1>Add Card</h1></div>
             <form onSubmit={NewSubmitHandeler}>
-                <label for="front">Front:</label>
+                <label htmlFor="front">Front:</label>
                 <textarea name="front" id="front" onChange={NewChangeHandeler} value={newFormData.front}></textarea>
-                <label for="back">Back:</label>
+                <label htmlFor="back">Back:</label>
                 <textarea name="back" id="back" onChange={NewChangeHandeler} value={newFormData.back}></textarea>
                 <button onClick={cancelClickHandler}>Cancel</button>
                 <button type="submit">Submit</button>
@@ -91,5 +91,4 @@ function CardDisplys({deck}){
         </Route>
         </Switch></div>)
 }
-
 export default CardDisplys;

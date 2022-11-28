@@ -72,14 +72,6 @@ function DeckDisplay(){
         history.push(`/`);
     }
 
-    const flipController =(event)=>{
-        if(fb=="front"){
-            setFb("back")
-        }else{
-            setFb("front")
-        }
-    }
-
     const nextController =(event)=>{
         if(cardNumber<deck.cards.length-1){
             setCardNumber(cardNumber+1)
@@ -94,6 +86,27 @@ function DeckDisplay(){
         }
     }
 
+    let nextButton = <button id="next" key ="next" onClick={nextController} name="next" >next</button>
+
+
+    const flipController =(event)=>{
+        if(fb=="front"){
+            setFb("back")
+            setStudyDesplay(
+                <div>
+                    <p>card {cardNumber+1} of {deck.cards.length}</p>
+                    <p>{deck.cards[cardNumber].back}</p>
+                    <button name="flip" id="flip" key ="flip" onClick={flipController}>flip</button>
+                    {nextButton}
+                    {/*<button id="next" onClick={nextController} name="next">Next</button>*/}
+                </div>
+                );
+        }else{
+            setFb("front")
+            
+        }
+    }
+    
     const EditSubmitHandeler=(event)=>{
         event.preventDefault()
         const abortController = new AbortController();
@@ -172,7 +185,7 @@ function DeckDisplay(){
                 <div>
                     <p>card {cardNumber+1} of {deck.cards.length}</p>
                     <p>{deck.cards[cardNumber].front}</p>
-                    <button onClick={flipController} id="flip" name="flip">Flip</button>
+                    <button onClick={flipController} id="flip" name="flip">flip</button>
                 </div>
                 );
         }else{
@@ -180,8 +193,9 @@ function DeckDisplay(){
                 <div>
                     <p>card {cardNumber+1} of {deck.cards.length}</p>
                     <p>{deck.cards[cardNumber].back}</p>
-                    <button name="flip" id="flip" onClick={flipController}>Flip</button>
-                    <button id="next" onClick={nextController} name="next">Next</button>
+                    <button name="flip" id="flip" key ="flip" onClick={flipController}>flip</button>
+                    {nextButton}
+                    {/*<button id="next" onClick={nextController} name="next">Next</button>*/}
                 </div>
                 );
         }}else{
@@ -196,14 +210,14 @@ function DeckDisplay(){
     return<div>
         <Switch>
             <Route exact path="/decks/new">
-            <div className="NavBar">
+            <div className="">
                 <Link to="/">Home</Link>/Create Deck
             </div>
             <h1>Create Deck</h1>
                 <form onSubmit={SubmitHandeler}>
-                    <label for="name">Name:</label>
+                    <label htmlFor="name">Name:</label>
                     <input type="text" name="name" id="name" onChange={changeHandeler} value={formData.name}></input>
-                    <label for="description" >Description:</label>
+                    <label htmlFor="description" >Description:</label>
                     <textarea name="description" id="description" onChange={changeHandeler} vlaue={formData.description}></textarea>
                     <button name=" " id="" onClick={cancelHandeler}>cancel</button>
                     <button type="submit">Submit</button>
@@ -223,7 +237,7 @@ function DeckDisplay(){
                 <button name={deck.id} id="new" value="" onClick={ClickHandeler}>+Add Card</button>
                 <button id={deck.id} name={deck.name} onClick={deleteHandler}>Delete</button>
                 <h3>Cards</h3>
-                {deck.cards.map((card)=>{return(<div>
+                {deck.cards.map((card)=>{return(<div key={`${card.id} div`}>
                     <p>{card.front}</p>
                     <p>{card.back}</p>
                     <button name={deck.id} id={card.id} value="/edit" onClick={ClickHandeler}>Edit</button>
@@ -238,9 +252,9 @@ function DeckDisplay(){
             </div>
             <h1>Edit Deck</h1>
             <form onSubmit={EditSubmitHandeler}>
-                    <label for="name">Name:</label>
+                    <label htmlFor="name">Name:</label>
                     <textarea name="name" id="name" onChange={editChangeHandeler} value={editFormData.name}></textarea>
-                    <label for="description" >Description:</label>
+                    <label htmlFor="description" >Description:</label>
                     <textarea name="description" id="description" onChange={editChangeHandeler} value={editFormData.description}></textarea>
                     <button name=" " id="" onClick={cancelHandeler}>cancel</button>
                     <button type="submit">Submit</button>

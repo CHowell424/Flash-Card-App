@@ -39,13 +39,13 @@ function HomeDisplay(){
         <Link to="/">Home</Link>
         </div>
         <button value="new" name="" onClick={ClickHandeler}>+ Create Deck</button>
-        {decks.map((deck)=>{return(<div>
-            <h3>{deck.name}</h3>
-            <p>{deck.cards.length} cards</p>
-            <p>{deck.description}</p>
-            <button value={deck.id} name="" onClick={ClickHandeler}>View</button>
-            <button value={deck.id} name="/study" onClick={ClickHandeler}>Study</button>
-            <button id={deck.id} name={deck.name} onClick={deleteHandler}>Delete</button>
+        {decks.map((deck)=>{return(<div key={`${deck.id} div`}>
+            <h3 key={`${deck.id} name`}>{deck.name}</h3>
+            <p key={`${deck.id} cards`}>{deck.cards.length} cards</p>
+            <p key={`${deck.id} descrip`}>{deck.description}</p>
+            <button key={`${deck.id} view`} value={deck.id} name="" onClick={ClickHandeler}>View</button>
+            <button key={`${deck.id} study`} value={deck.id} name="/study" onClick={ClickHandeler}>Study</button>
+            <button key={`${deck.id} delete`} id={deck.id} name={deck.name} onClick={deleteHandler}>Delete</button>
         </div>)})}
     </div>)
 }
