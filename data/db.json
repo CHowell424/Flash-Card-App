@@ -9,31 +9,32 @@
       "name": "React Router",
       "description": "React Router is a collection of navigational components that compose declaratively with your application.",
       "id": 2
+    },
+    {
+      "name": "Star Wars ",
+      "description": "Simply Star Wars Trivia",
+      "id": 3
     }
   ],
   "cards": [
     {
-      "id": 1,
-      "front": "Differentiate between Real DOM and Virtual DOM.",
+      "front": "Differentiate between Real DOM s and Virtual DOM.",
       "back": "Virtual DOM updates are faster but do not directly update the HTML",
-      "deckId": 1
+      "id": 1
     },
     {
-      "id": 2,
-      "front": "How do you modify the state of a different React component?",
-      "back": "Not at all! State is visible to the component only.",
-      "deckId": 1
+      "front": "How do you modify the state of a different React component?s",
+      "bakck": "Not at all! State is visible to the component only.",
+      "id": 2
     },
     {
-      "id": 3,
-      "front": "How do you pass data 'down' to a React child component?",
-      "back": "As properties or props",
-      "deckId": 1
+      "front": "How do you pass data 'down' to a React child component?s",
+      "bakck": "As properties or props",
+      "id": 3
     },
     {
       "front": "What path will match the follow Route?\n<Route>\n  <NotFound />\n</Route>",
-      "back": "All paths. A route with no path matches all URL's",
-      "deckId": 2,
+      "bakck": "All paths. A route with no path matches all URL's",
       "id": 4
     },
     {
@@ -41,6 +42,68 @@
       "back": "Renders the first matching child <Route> ",
       "deckId": 2,
       "id": 5
+    },
+    {
+      "front": "Hello theres",
+      "back": "sdas",
+      "id": 6
+    },
+    {
+      "front": "hello theres",
+      "id": 7
+    },
+    {
+      "front": "hello there",
+      "back": "General Kenobiess",
+      "id": 8
+    },
+    {
+      "front": "hello there s",
+      "back": "General Kenobie",
+      "id": 9
+    },
+    {
+      "front": "Hello theres",
+      "back": "General Kenobie",
+      "id": 10
+    },
+    {
+      "front": "Hello there",
+      "back": "General Kenobies ",
+      "id": 11
+    },
+    {
+      "front": "What are atata",
+      "back": "are",
+      "id": 12
+    },
+    {
+      "front": "What does AT-AT stand for?",
+      "back": "All Terrain Armored Transport  ",
+      "deckId": 3,
+      "id": 13
+    },
+    {
+      "front": "Hello There",
+      "back": "General Kenobi s",
+      "id": 14
+    },
+    {
+      "front": "Hello There",
+      "back": "General Kenobi s",
+      "id": 15
+    },
+    {
+      "front": "Hello there ",
+      "back": "General Kenobi",
+      "id": 16,
+      "deckId": 3
+    },
+    {
+      "front": "What color is the lightsaber that Luke made",
+      "back": "green",
+      "deckId": 3,
+      "id": 17
     }
   ]
 }

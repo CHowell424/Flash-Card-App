@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch, useHistory, useParams, Link } from "react-router-dom/cjs/react-router-dom.min";
 import { createDeck, deleteCard, deleteDeck, readDeck, updateDeck } from "../utils/api";
-import CardDisplys from "./CardDisplays";
+import ECCards from "./ECCards";
 
 function DeckDisplay(){
     const [formData, setFormData]=useState({name:"", description:""});
@@ -18,11 +18,9 @@ function DeckDisplay(){
         const deckID = event.target.name;
         const cardID = event.target.id;
         const value= event.target.value;
-        console.log(cardID);
-        if(cardID=="0"){
+        if(cardID==="0"){
             history.push(`/decks/${deckID}${value}`)
         }else{
-            console.log(cardID);
             history.push(`/decks/${deckID}/cards/${cardID}${value}`)
         }
     }
@@ -49,7 +47,7 @@ function DeckDisplay(){
         try{
             createDeck(newDeck,abortController.signal);
         }catch(error){
-            if(error.name=="AbortError"){
+            if(error.name==="AbortError"){
                 console.log("Aborted")
             }else{
                 throw error;
@@ -114,7 +112,7 @@ function DeckDisplay(){
         try{
             updateDeck(updatedDeck,abortController.signal);
         }catch(error){
-            if(error.name=="AbortError"){
+            if(error.name==="AbortError"){
                 console.log("Aborted")
             }else{
                 throw error;
@@ -271,8 +269,11 @@ function DeckDisplay(){
                 {studyDeslpay}
             </Route>
 
-            <Route path="/decks/:deckId/cards/:cardId">
-                <CardDisplys deck={deck}/>
+            <Route exact path="/decks/:deckId/cards/new">
+                <ECCards deck={deck}/>
+            </Route>
+            <Route exact path="/decks/:deckId/cards/:cardId/edit">
+                <ECCards edit={true} deck={deck}/>
             </Route>
         </Switch>
     </div>
