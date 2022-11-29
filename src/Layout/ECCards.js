@@ -8,7 +8,7 @@ function ECCards({edit=false, deck}){
     const deckId = useParams().deckId;
     const cardId = useParams().cardId;
     let path = "Add Card";
-    let ec = <h1>{deck.name}: Add Card</h1>
+    let ec = <h1></h1>
 
     useEffect(()=>{
         const abortController = new AbortController();
@@ -63,6 +63,7 @@ function ECCards({edit=false, deck}){
             history.push(`/`)
         }
     }
+    
 
         if(edit){ec = <h1>Edit Card</h1>
         ;path=`edit card ${formData.id}`;}

@@ -270,6 +270,7 @@ function DeckDisplay(){
             </Route>
 
             <Route exact path="/decks/:deckId/cards/new">
+                <h1>{deck.name}: </h1><h1>Add Card</h1>
                 <ECCards deck={deck}/>
             </Route>
             <Route exact path="/decks/:deckId/cards/:cardId/edit">
